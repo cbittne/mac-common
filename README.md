@@ -33,8 +33,8 @@ Install common MAC OS X Applications
 - VeraCrypt
 - VLC
 
-## XCode
-- Apple XCode
+## Xcode
+- Xcode Full Install
 
 ## Python Modules
 - setuptools==58.1.0
