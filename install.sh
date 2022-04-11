@@ -323,7 +323,6 @@ if [[ $utilities == "true" ]]; then
 fi
 
 if [[ $xcode == "true" ]]; then
-  echo "Installing XCode..."
   xcode
   exit 1
 fi
@@ -335,5 +334,6 @@ if [[ $all == "true" ]]; then
   container
   utilities
   xcode
+  pythonmods
   exit 1
 fi
