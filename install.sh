@@ -281,6 +281,18 @@ utilities() {
     install
   fi
 
+  ## Slack
+  if [ ! -d "/Applications/Slack.app" ]; then
+  echo "Installing Slack..."
+  SLACK_VERSION=4.25.0
+  mas install 803453959
+  
+  ## Speedtest
+  if [ ! -d "/Applications/Speedtest.app" ]; then
+  echo "Installing SpeedTest..."
+  SLACK_VERSION=1.24
+  mas install 1153157709
+  
   popd > /dev/null || return   
 }
 
