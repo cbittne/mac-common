@@ -178,6 +178,17 @@ container() {
     hdiutil detach -quiet /Volumes/Lens*
     install
   fi
+  
+  ## Parallels Desktop
+  if [ ! -d "/Applications/Parallels Desktop.app" ]; then
+  echo "Installing Parallels Desktop..."
+  $(curl -fsL -o Parallels.dmg 'https://www.parallels.com/directdownload/pd17/image/?experience=enter_key')
+  hdiutil attach -noautoopen -noverify -quiet ./Parallels.dmg
+  cp -R /Volumes/Parallels*/*.app ./tmp/
+  hdiutil detach -quiet /Volumes/Parallels*
+  install
+  fi
+  
   popd > /dev/null || return    
 }
 
@@ -286,12 +297,14 @@ utilities() {
   echo "Installing Slack..."
   SLACK_VERSION=4.25.0
   mas install 803453959
+  fi
   
   ## Speedtest
   if [ ! -d "/Applications/Speedtest.app" ]; then
   echo "Installing SpeedTest..."
   SLACK_VERSION=1.24
   mas install 1153157709
+  fi
   
   popd > /dev/null || return   
 }
