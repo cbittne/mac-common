@@ -49,7 +49,7 @@ rm -rf ./download
 mkdir -p ./download/tmp
 
 install() {
-  pushd ./download/tmp > /dev/null || return 
+  pushd download/tmp > /dev/null || return 
   sudo mv *.app /Applications/
   popd > /dev/null || return
 }
