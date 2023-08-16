@@ -83,13 +83,6 @@ preflight() {
 
 editors() {
   pushd ./download > /dev/null || return
-  ## Atom
-  if [ ! -d "/Applications/Atom.app" ]; then
-    echo "Installing Atom..."
-    $(curl -fsL -o atom-mac.zip 'https://atom.io/download/mac')
-    unzip -q atom-mac.zip -d ./tmp/
-    install
-  fi
 
   ## VSCode
   if [ ! -d "/Applications/Visual Studio Code.app" ]; then
@@ -178,17 +171,7 @@ container() {
     hdiutil detach -quiet /Volumes/Lens*
     install
   fi
-  
-  ## Parallels Desktop
-  if [ ! -d "/Applications/Parallels Desktop.app" ]; then
-  echo "Installing Parallels Desktop..."
-  $(curl -fsL -o Parallels.dmg 'https://www.parallels.com/directdownload/pd17/image/?experience=enter_key')
-  hdiutil attach -noautoopen -noverify -quiet ./Parallels.dmg
-  cp -R /Volumes/Parallels*/*.app ./tmp/
-  hdiutil detach -quiet /Volumes/Parallels*
-  install
-  fi
-  
+ 
   popd > /dev/null || return    
 }
 
